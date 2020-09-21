@@ -7,8 +7,8 @@ Follow us on [Twitter](https://twitter.com/URYNowPlaying)
 
 #### Build Docker Image
 
-```docker build -t nowPlaying .```
+```docker build -t now-playing .```
 
 ### Run Docker Image
 
-```docker run -v ##FULL PATH TO DIR##:/usr/src/app nowPlaying```
+```docker run -v ##FULL PATH TO DIR##:/usr/src/app -d now-playing```

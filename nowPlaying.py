@@ -24,7 +24,7 @@ print('Running...')
 while True:
     # get current track
     try:
-        log = open("/home/cooltennis/uryNowPlaying/log " + str(datetime.datetime.now().strftime("%d.%b %Y")) + ".txt","a")
+        log = open("log " + str(datetime.datetime.now().strftime("%d.%b %Y")) + ".txt","a")
         r = requests.get(URY_API_ENDPOINT)
         res = r.json()
         if not res['data']['nowPlaying']:
