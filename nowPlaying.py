@@ -31,8 +31,8 @@ while True:
             raise;
         title = res['data']['nowPlaying']['track']['title']
         artist = res['data']['nowPlaying']['track']['artist']
-        if lastPlayed != title + ' ' + artist:
-            lastPlayed = title + ' ' + artist
+        if lastPlayed != title + ' - ' + artist:
+            lastPlayed = title + ' - ' + artist
             try:
                 postFix = ''
                 # if 'King Gizzard' in lastPlayed:
