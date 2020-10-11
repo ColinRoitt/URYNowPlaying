@@ -2,9 +2,30 @@ import tweepy
 import requests
 import time
 import datetime
+import os
 
 def getTimestamp():
     return str(datetime.datetime.now().strftime("%d %b %Y %H:%M:%S"))
+
+def isDateNDaysInPast(fileName, n):
+    date = datetime.datetime.strptime(fileName[4:-4], "%d.%b %Y")
+    timeDifference = (datetime.datetime.now() - date).days
+    return timeDifference > n
+
+def clearOldLogs(currLog):
+    files = os.listdir()
+    logs = [name for name in files if name.startswith("log") and name.endswith(".txt") and isDateNDaysInPast(name, 30)]
+    for fileToDelete in logs:
+        try:
+            os.remove(fileToDelete)
+            msg = 'Deleting log - ' + fileToDelete
+            print(msg)
+            currLog.write(msg + '\n')
+        except:
+            msg = 'Failed to delete log - ' + fileToDelete
+            print(msg)
+            currLog.write(msg + '\n')
+            
 
 emoji = '🎵'
 
@@ -25,6 +46,7 @@ while True:
     # get current track
     try:
         log = open("log " + str(datetime.datetime.now().strftime("%d.%b %Y")) + ".txt","a")
+        clearOldLogs(log)
         r = requests.get(URY_API_ENDPOINT)
         res = r.json()
         if not res['data']['nowPlaying']:
