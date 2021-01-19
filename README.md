@@ -1,4 +1,6 @@
 # URYNowPlaying
+### DEPRECATED PROJECT - rewritten as [IceTracks2 plugin](https://github.com/UniversityRadioYork/icetracks2)
+
 A small Twitter bot to keep tabs on the current track and tweet it out so all our lovely listeners can stay abreast of a tantalising selection of varied bangers.
 
 Follow us on [Twitter](https://twitter.com/URYNowPlaying)
